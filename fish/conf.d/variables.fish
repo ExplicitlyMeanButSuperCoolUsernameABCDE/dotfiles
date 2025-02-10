@@ -1,0 +1,8 @@
+set CONFIG "/Users/yara/.config"
+set FISH "/Users/yara/.config/fish"
+set FASTFETCH "/Users/yara/.config/fastfetch/"
+set EDITOR "/Users/yara/.config/nvim/"
+set PROJECTS "/Users/yara/Documents/.projects"
+set DOC "~/Documents/"
+set DOW "~/Downloads/"
+set NOTE "/Users/yara/Documents/.notes"

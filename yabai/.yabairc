@@ -1,0 +1,78 @@
+#!/usr/bin/env sh
+# ──────────────────────────────────────────────────────────────── #
+#                        YABAI CONFIGURATION                         #
+# ──────────────────────────────────────────────────────────────── #
+#
+# This configuration file creates a clean, modern, and highly usable
+# tiling window manager setup on macOS using yabai.
+#
+# Requirements:
+#   - yabai installed and configured (see https://github.com/koekeishiya/yabai)
+#   - For certain features (e.g. window shadow removal), you might need to
+#     disable System Integrity Protection (SIP) or adjust your settings.
+#
+# Save this file as ~/.yabairc, then run:
+#   chmod +x ~/.yabairc
+#   brew services restart yabai
+#
+# Enjoy!
+# ──────────────────────────────────────────────────────────────── #
+
+# Appearance Settings: Gaps and Padding
+yabai -m config window_gap 8      # Gap between tiled windows
+yabai -m config top_padding 20    # Top padding (useful for status bars)
+yabai -m config bottom_padding 20 # Bottom padding
+yabai -m config left_padding 20   # Left-side padding
+yabai -m config right_padding 20  # Right-side padding
+
+# Window Border Settings
+yabai -m config window_border on
+yabai -m config window_border_width 2
+yabai -m config active_window_border_color 0xff79c6 # Active window gets a vibrant pink border
+yabai -m config normal_window_border_color 0x44475a # Inactive windows use a subtle dark gray
+
+# Disable Window Shadows for a Sleek Look
+yabai -m config window_shadow off
+
+# Layout and Focus Settings
+yabai -m config layout bsp              # Use Binary Space Partitioning layout
+yabai -m config focus_follows_mouse off # Use click-to-focus (instead of auto-focus)
+yabai -m config mouse_follows_focus off
+
+# External Bar Configuration (if using a custom status bar)
+# Format: <display>:<offset>:<height>
+yabai -m config external_bar all:0:32
+
+# Opacity & Animation Settings
+yabai -m config window_opacity off
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 1.0
+yabai -m config window_opacity_duration 0.2
+yabai -m config window_resize_duration 0.2
+
+# Mouse Controls for Interactive Window Management
+# (Requires proper accessibility permissions.)
+yabai -m config mouse_modifier fn    # Hold the “fn” key to interact with windows
+yabai -m config mouse_action1 move   # Drag with modifier to move windows
+yabai -m config mouse_action2 resize # Drag with modifier to resize windows
+
+# Application Rules: Automatically float or manage specific apps
+# (Some apps work better without tiling.)
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^Slack$" manage=off
+
+# Assign Applications to Specific Spaces for an Organized Workflow
+yabai -m rule --add app="^iTerm2$" space=2
+yabai -m rule --add app="^Google Chrome$" space=3
+
+# Automatically Float Any Dialog Windows for Better Accessibility
+yabai -m rule --add title=".*Dialog" float=on
+
+# Signals: Auto-Balance Windows on Display or Space Changes
+yabai -m signal --add event=display_added action="yabai -m window --balance"
+yabai -m signal --add event=display_removed action="yabai -m window --balance"
+yabai -m signal --add event=space_changed action="yabai -m window --balance"
+
+echo "Yabai configuration loaded successfully!"

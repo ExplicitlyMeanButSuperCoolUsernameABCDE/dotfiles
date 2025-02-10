@@ -1,0 +1,104 @@
+add_newline = false
+
+format = """
+$cmd_duration$directory $git_branch
+$character
+"""
+
+[palettes.pastel_pink]
+blush        = "#F8AD9D"
+rose         = "#F28482"
+petal        = "#F5CACD"
+lavender     = "#E6BCCD"
+mauve        = "#D9AED8"
+berry        = "#D58FBC"
+shell        = "#F0E6EF"
+mist         = "#F4F1DE"
+
+[character]
+success_symbol = "[• ](bold fg:#D58FBC ) "
+error_symbol = "[• 󰅙](bold fg:#F28482) "
+
+[package]
+disabled = true
+
+[git_branch]
+style = "bg:#F5CACD fg:black"  
+symbol = "🌿"
+truncation_length = 4
+truncation_symbol = ""
+format = "• [](bold fg:#E6BCCD)[$symbol $branch(:$remote_branch)](fg:black bg:#F5CACD)[ ](bold fg:#E6BCCD )" # Black font color added
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = "🏷️ "
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold #F8AD9D)"
+
+[git_status]
+conflicted = "💢"
+ahead = "✨"
+behind = "🐾"
+diverged = "💔 Diverged"
+untracked = "✨"
+stashed = "🎀 Stashed"
+modified = "📝"
+staged = '[+ $count](bold fg:#D58FBC)'
+renamed = "🔄"
+deleted = "🗑"
+
+[hostname]
+ssh_only = false
+format = "[🏰 $hostname](fg:#E6BCCD)"
+trim_at = ".companyname.com"
+disabled = false
+
+[line_break]
+disabled = false
+
+[memory_usage]
+disabled = true
+threshold = -1
+symbol = " "
+style = "bold dimmed #D58FBC"
+
+[time]
+disabled = false
+format = "[🕰️ $time](fg:#D9AED8 )"
+time_format = "%T"
+
+[username]
+format = "[](bold fg:#F8AD9D)[💖 $user]($style)"
+disabled = false
+show_always = true
+
+[username.style]
+user = "bold fg:black bg:#F5CACD"  
+root = "fg:white bg:#F28482"
+
+[directory]
+home_symbol = "🏠"
+read_only = "🔒"
+style = "bg:#D58FBC fg:black"  
+truncation_length = 6
+truncation_symbol = "••/"
+format = '[](bold fg:#D58FBC)[$path ]($style)[](bold fg:#D58FBC)'
+
+[directory.substitutions]
+"Desktop" = "✨"  
+"Documents" = "📂" 
+"Downloads" = "🎁"  
+"Music" = "🎶"  
+"Pictures" = "🎀"
+"Videos" = " 🌸"  
+
+[status]
+disabled = false
+format = "[](bold fg:#D58FBC)[$path ](💖 $style)[](bold fg:#D58FBC)"
+show_in = ["directory", "git_branch"]
+
+[cmd_duration]
+min_time = 0
+format = '[](bold fg:#a2d2ff )[🕰️ $duration](bold bg:#a2d2ff fg:black)[](bold fg:#a2d2ff ) •• '  # Black font color added
