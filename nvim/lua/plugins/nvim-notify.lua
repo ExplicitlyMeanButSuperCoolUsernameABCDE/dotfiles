@@ -26,7 +26,7 @@ return {
     -- Create an autocommand to show a welcome message when Neovim starts up
     vim.api.nvim_create_autocmd("VimEnter", {
       callback = function()
-        vim.notify("Welcome to your girl-powered LazyVim setup!", "info", { title = "Welcome" })
+        vim.notify("Welcome back to Vim. Happy coding!", "info", { title = "Welcome" })
       end,
     })
   end,

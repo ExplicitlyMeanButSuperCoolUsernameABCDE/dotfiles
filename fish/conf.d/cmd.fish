@@ -7,6 +7,8 @@ alias ....='cd ../../../..'
 # Custom Git aliases
 alias ga='git add .'
 alias gs='git status'
+alias gmain='ssh -T git@github.com-main'
+alias gsecond='ssh -T git@github.com-second'
 
 # Utility aliases
 alias ft='fortune'
