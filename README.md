@@ -3,6 +3,13 @@
 
 This repository contains my **personal macOS configuration** tailored for Apple Silicon (M1/M2/M3) users. It includes a **tiling window manager**, a **customized terminal experience**, and an optimized **Neovim** setup.
 
+
+Here are some screenshots:
+
+![Image 0](./images/img0.png)
+![Image 1](./images/img1.png)
+![Image 2](./images/img2.png)
+
 ## **🚀 Features**
 - **Window Manager**: [yabai](https://github.com/koekeishiya/yabai) - dynamic tiling window manager for macOS.
 - **Hotkey Daemon**: [skhd](https://github.com/koekeishiya/skhd) - global keyboard shortcuts.
